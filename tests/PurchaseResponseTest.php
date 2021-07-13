@@ -1,6 +1,6 @@
 <?php
 
-namespace DigiTickets\StripeTests;
+namespace DigiTickets\OmnipayVerifoneCheckout\Test;
 
 use DigiTickets\OmnipayVerifoneCheckout\Message\PurchaseRequest;
 use DigiTickets\OmnipayVerifoneCheckout\Message\PurchaseResponse;
