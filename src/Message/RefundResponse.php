@@ -6,7 +6,7 @@ use Omnipay\Common\Message\AbstractResponse;
 
 class RefundResponse extends AbstractResponse
 {
-    const SUCCESS = [
+    const SUCCESS_STATUSES = [
         'PENDING',
         'SETTLEMENT_CANCELLED',
     ];
@@ -16,7 +16,7 @@ class RefundResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        return isset($this->data['status']) && in_array($this->data['status'], self::SUCCESS);
+        return isset($this->data['status']) && in_array($this->data['status'], self::SUCCESS_STATUSES);
     }
 
     /**

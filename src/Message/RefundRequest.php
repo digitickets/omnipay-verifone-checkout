@@ -4,6 +4,9 @@ namespace DigiTickets\OmnipayVerifoneCheckout\Message;
 
 class RefundRequest extends AbstractRequest
 {
+    const REFUND_ACTION_REFUND = 'refund';
+    const REFUND_ACTION_VOID = 'void_capture';
+
     public function getData()
     {
         return [

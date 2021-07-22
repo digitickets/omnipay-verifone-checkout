@@ -29,7 +29,7 @@ class CheckoutCreateCustomerRequest extends AbstractRequest
         ];
 
         if ($creditCard->getState()) {
-            $data['state'] = $creditCard->getState();
+            $data['billing']['state'] = $creditCard->getState();
         }
 
         return array_filter($data);

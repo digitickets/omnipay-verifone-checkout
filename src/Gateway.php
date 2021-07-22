@@ -24,6 +24,8 @@ use Omnipay\Common\Message\RequestInterface;
  */
 class Gateway extends AbstractGateway
 {
+    const SETTLEMENT_REQUESTED = 'SETTLEMENT_REQUESTED';
+
     /**
      * @return string
      */
@@ -137,10 +139,10 @@ class Gateway extends AbstractGateway
         $response = $request->send();
         $status = $response->getData()['status'] ?? '';
 
-        $options['refundAction'] = 'refund';
-        if ($status === 'SETTLEMENT_REQUESTED') {
+        $options['refundAction'] = RefundRequest::REFUND_ACTION_REFUND;
+        if ($status === self::SETTLEMENT_REQUESTED) {
             //cancel the settlement request instead of refund
-            $options['refundAction'] = 'void_capture';
+            $options['refundAction'] = RefundRequest::REFUND_ACTION_VOID;
         }
 
         return $this->createRequest(RefundRequest::class, $options);

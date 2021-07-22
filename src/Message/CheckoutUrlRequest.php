@@ -25,7 +25,7 @@ class CheckoutUrlRequest extends AbstractRequest
             'card' => [
                 'process_transaction' => true,
                 'capture_now' => true,
-                //dynamic_descriptor shows up on the customers bank statement as a reference e.g. BUS*Tickets
+                //dynamic_descriptor shows up on the customer's bank statement as a reference e.g. BUS*Tickets
                 'dynamic_descriptor' => $this->getDynamicDescriptor(),
                 'threed_secure' => [
                     'enabled' => true,

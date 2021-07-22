@@ -6,25 +6,23 @@ use Omnipay\Common\Message\AbstractResponse;
 
 class CompletePurchaseResponse extends AbstractResponse
 {
-    const SUCCESS = [
+    const SUCCESS_STATUSES = [
         'AUTHORIZED',
         'SETTLEMENT_REQUESTED',
         'SETTLEMENT_SUBMITTED',
         'SETTLEMENT_PARTIAL',
         'SETTLEMENT_COMPLETED',
-        'AUTHORIZED',
     ];
-    const PENDING = [
+    const PENDING_STATUSES = [
         'INITIATED',
         'PENDING',
     ];
-    const FAILED = [
+    const FAILED_STATUSES = [
         'AUTHORIZATION_VOIDED',
         'SETTLEMENT_CANCELLED',
         'DECLINED',
         'FAILED',
         'UNKNOWN',
-        'AUTHORIZED',
     ];
 
     /**
@@ -32,7 +30,7 @@ class CompletePurchaseResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        return isset($this->data['status']) && in_array($this->data['status'], self::SUCCESS);
+        return isset($this->data['status']) && in_array($this->data['status'], self::SUCCESS_STATUSES);
     }
 
     /**
@@ -40,7 +38,7 @@ class CompletePurchaseResponse extends AbstractResponse
      */
     public function isCancelled()
     {
-        return !empty($this->data['error']) || !isset($this->data['status']) || in_array($this->data['status'], self::FAILED);
+        return !empty($this->data['error']) || !isset($this->data['status']) || in_array($this->data['status'], self::FAILED_STATUSES);
     }
 
     /**
@@ -48,7 +46,7 @@ class CompletePurchaseResponse extends AbstractResponse
      */
     public function isPending()
     {
-        return isset($this->data['status']) && in_array($this->data['status'], self::PENDING);
+        return isset($this->data['status']) && in_array($this->data['status'], self::PENDING_STATUSES);
     }
 
     /**
