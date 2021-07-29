@@ -1,0 +1,36 @@
+{
+  "name": "digitickets/omnipay-verifone-checkout",
+  "type": "library",
+  "description": "Verifone Checkout driver for the Omnipay payment processing library",
+  "keywords": [
+    "verifone",
+    "checkout",
+    "gateway",
+    "merchant",
+    "omnipay",
+    "web",
+    "service"
+  ],
+  "homepage": "https://github.com/digitickets/omnipay-verifone-checkout",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "DigiTickets\\OmnipayVerifoneCheckout\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DigiTickets\\OmnipayVerifoneCheckout\\": "tests/"
+    }
+  },
+  "require": {
+    "omnipay/common": "^2.0",
+    "php": "^7"
+  },
+  "require-dev": {
+    "omnipay/tests": "^2.0",
+    "mockery/mockery": "~0.8"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
