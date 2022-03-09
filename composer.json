@@ -31,6 +31,5 @@
     "omnipay/tests": "^2.0",
     "mockery/mockery": "~0.8"
   },
-  "minimum-stability": "dev",
   "prefer-stable": true
 }
