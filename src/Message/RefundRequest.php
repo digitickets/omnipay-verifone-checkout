@@ -47,7 +47,7 @@ class RefundRequest extends AbstractRequest
             // On HTTP errors being returned, we still want to pass the response through, as Verifone passes through extra data in the body of errors,
             //  but only if it's returning json with a message field.
             $response = $e->getResponse();
-            $data = json_decode($response);
+            $data = json_decode($response->getBody(true), true);
             if(!empty($data["message"])){
                 $httpResponse = $response;
             }else{

@@ -45,6 +45,12 @@ class RefundResponseTest extends TestCase
                 'FAILED - failed reason',
                 '123',
             ],
+            'http error' => [
+                ['_id' => '123', 'message' => 'Bad request', 'code' => '400'],
+                false,
+                'Bad request',
+                '123',
+            ],
         ];
     }
 }
