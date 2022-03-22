@@ -32,14 +32,16 @@ class RefundResponse extends AbstractResponse
      */
     public function getMessage()
     {
+        $output = [
+            $this->data['status'] ?? '',
+            $this->data['status_reason'] ?? '',
+            // This is only filled when there is an http error
+            $this->data['message'] ?? '',
+        ];
+
         return implode(
             ' - ',
-            array_filter(
-                [
-                    $this->data['status'] ?? '',
-                    $this->data['status_reason'] ?? '',
-                ]
-            )
+            array_filter($output)
         );
     }
 
@@ -48,6 +50,6 @@ class RefundResponse extends AbstractResponse
      */
     public function getCode()
     {
-        return $this->data['status'] ?? '';
+        return $this->data['status'] ?? $this->data['code'] ?? '';
     }
 }
