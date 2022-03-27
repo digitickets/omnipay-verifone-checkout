@@ -2,9 +2,7 @@
 
 namespace DigiTickets\OmnipayVerifoneCheckout\Message;
 
-use DigiTickets\Funcs\Strings;
 use Guzzle\Http\Exception\BadResponseException;
-use Guzzle\Http\Message\Response;
 
 class RefundRequest extends AbstractRequest
 {
